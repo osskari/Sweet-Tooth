@@ -1,8 +1,8 @@
-const Pinata = (id, name, maximumHits, currentHits) => {
+function Pinata (id, name, maximumHits, currentHits) {
     this.id = id;
     this.name = name;
     this.maximumHits = maximumHits;
     this.currentHits = currentHits;
 }
 
-module.exports = Pinata();
+module.exports = Pinata;
