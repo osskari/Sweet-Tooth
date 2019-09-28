@@ -1,25 +1,16 @@
-const {Candy} = require('../data/db');
+const repo = require('../repositories/candyRepo');
 
 const candyService = () => {
     const getAllCandies = (cb, errorCb) => {
-        Candy.find({}, (err, candies) => {
-            if (err) { errorCb(err); }
-            cb(candies);
-        });
+        repo.findAll(cb, errorCb);
     };
 
     const createCandy = (candy, cb, errorCb) => {
-        Candy.create(candy, (err, candy) => {
-            if (err) { errorCb(err); }
-            cb(candy);
-        });
+        repo.create(candy, cb, errorCb);
     };
 
     const getCandyById = (id, cb, errorCb) => {
-        Candy.findById({_id:id}, (err, candy) => {
-            if (err) { errorCb(err); }
-            cb(candy);
-        });
+        repo.findById(id, cb, errorCb);
     };
 
     return {

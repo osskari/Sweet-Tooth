@@ -1,5 +1,5 @@
 const data = require('./data.json');
-const { Candy, Offer, Pinata} = require('./schemas/entites');
+const { Candy, Offer, Pinata } = require('./schemas/entites');
 
 const parseJsonToObjects = () => {
     const Candies = [];
@@ -38,4 +38,4 @@ const parseJsonToObjects = () => {
     }
 }
 
-module.exports = parseJsonToObjects;
+module.exports = parseJsonToObjects();
