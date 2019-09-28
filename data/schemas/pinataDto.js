@@ -5,4 +5,4 @@ function PinataDto (id, name, maximumHits, currentHits) {
     this.currentHits = currentHits;
 }
 
-module.exports = Pinata;
+module.exports = PinataDto;

@@ -1,11 +1,8 @@
-const { Offer } = require('../data/db');
+const repo = require('../repositories/offerRepo');
 
 const offerService = () => {
     const getAllOffers = (cb, errorCb) => {
-        Offer.find({}, (err, offers) => {
-            if (err) { errorCb(err); }
-            cb(offers);
-        });
+        repo.findAll(cb, errorCb);
     };
 
     return {

@@ -1,5 +1,5 @@
 const data = require('./data.json');
-const { Candy, Offer, Pinata} = require('./schemas/entites');
+const { Candy, Offer, Pinata } = require('./schemas/entites');
 
 const parseJsonToObjects = () => {
     const Candies = [];
@@ -14,10 +14,19 @@ const parseJsonToObjects = () => {
         ));
     });
     data.offers.forEach(offer => {
+        const candies = [];
+        offer.candies.forEach(x => {
+            var temp = Candies.find(c => { return c.id == x });
+            candies.push(new Candy(
+                temp.id,
+                temp.name,
+                temp.description
+            ));
+        });
         Offers.push(new Offer(
             offer.id,
             offer.name,
-            offer.candies
+            candies
         ));
     });
 
@@ -38,4 +47,4 @@ const parseJsonToObjects = () => {
     }
 }
 
-module.exports = parseJsonToObjects;
+module.exports = parseJsonToObjects();
