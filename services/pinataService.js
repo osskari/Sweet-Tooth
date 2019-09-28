@@ -1,39 +1,27 @@
-const { Pinata } = require('../data/db');
+const repo = require('../repositories/pinataRepo');
 
 const pinataService = () => {
     const getAllPinatas = (cb, errorCb) => {
-        Pinata.find({}, (err, pinatas) => {
-            if (err) { errorCb(err); }
-            cb(pinatas);
-        });
+        repo.findAll(cb, errorCb);
     };
 
     const createPinata = (pinata, cb, errorCb) => {
-        Pinata.create(pinata, (err, pinata) => {
-            if (err) { errorCb(err); }
-            cb(pinata);
-        });
+        repo.create(pinata, cb, errorCb);
     };
 
     const getPinataById = (id, cb, errorCb) => {
-        Pinata.findById({ _id: id }, (err, pinata) => {
-            if (err) { errorCb(err); }
-            cb(pinata);
-        });
+        repo.findById(id, cb, errorCb);
     };
 
-    const hitPinata = (id, cb, errorCb) => {
-        Pinata.hit({ _id: id }, (err, pinata) => {
-            if (err) { errorCb(err); }
-            cb(pinata);
-        });
+    const hitPinataById = (id, cb, errorCb) => {
+        repo.hitPinataById(id, cb, errorCb);
     };
 
     return {
         getAllPinatas,
         createPinata,
         getPinataById,
-        hitPinata
+        hitPinataById
     }
 };
 
