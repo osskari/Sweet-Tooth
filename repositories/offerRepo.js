@@ -1,4 +1,5 @@
-const { Offers } = require('../data/db');
+const { Offers, Candies } = require('../data/db');
+const Candy = require('../data/schemas/candy');
 
 const offerRepo = () => {
     const findAll = (cb, errorCb) => {
