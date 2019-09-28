@@ -1,10 +1,18 @@
 const { Pinatas } = require('../data/db');
 const Pinata = require('../data/schemas/pinata');
+const PinataDto = require('../data/schemas/pinataDto');
 
 const pinataRepo = () => {
     const findAll = (cb, errorCb) => {
         if (!Pinatas){ errorCb("Database Error"); }
-        cb(Pinatas);
+        const dtoList = [];
+        Pinatas.forEach(pinata => { dtoList.push(new PinataDto(
+            pinata.id,
+            pinata.name,
+            pinata.maximumHits,
+            pinata.currentHits
+        ))});
+        cb(dtoList);
     };
 
     const create = (pinata, cb, errorCb) => {
@@ -23,9 +31,17 @@ const pinataRepo = () => {
     const findById = (id, cb, errorCb) => {
         if(!Pinatas){ errorCb("Databse Error"); }
         if(id < 1 || id > Pinatas.length + 1){ errorCb("index out of bounds"); }
-        const temp = Pinatas.find(pinata => { return pinata.id == id });
-        if(!temp){ errorCb("Pinata not found"); }
-        cb(temp);
+        Pinatas.find(pinata => {
+            if(pinata.id == id){
+               cb(new PinataDto(
+                   pinata.id,
+                   pinata.name,
+                   pinata.maximumHits,
+                   pinata.currentHits
+               ));
+            }
+            errorCb("Pinata not found");
+        });
     };
 
     const hitPinataById = (id, cb, errorCb) => {
