@@ -25,8 +25,9 @@ const parseJsonToObjects = () => {
         Pinatas.push(new Pinata(
             pinata.id,
             pinata.name,
+            pinata.surprise,
             pinata.maximumHits,
-            pinata.currentHits
+            0
         ));
     });
 
@@ -36,5 +37,8 @@ const parseJsonToObjects = () => {
         Pinatas
     }
 }
+
+console.log(parseJsonToObjects());
+
 
 module.exports = parseJsonToObjects;

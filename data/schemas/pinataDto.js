@@ -1,7 +1,6 @@
-function Pinata (id, name, surprise, maximumHits, currentHits) {
+function PinataDto (id, name, maximumHits, currentHits) {
     this.id = id;
     this.name = name;
-    this.surprise = surprise;
     this.maximumHits = maximumHits;
     this.currentHits = currentHits;
 }
