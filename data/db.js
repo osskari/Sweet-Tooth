@@ -38,7 +38,4 @@ const parseJsonToObjects = () => {
     }
 }
 
-console.log(parseJsonToObjects());
-
-
 module.exports = parseJsonToObjects;
