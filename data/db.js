@@ -2,9 +2,9 @@ const data = require('./data.json');
 const { Candy, Offer, Pinata } = require('./schemas/entites');
 
 const parseJsonToObjects = () => {
-    const Candies = [];
-    const Offers = [];
-    const Pinatas = [];
+    let Candies = [];
+    let Offers = [];
+    let Pinatas = [];
 
     data.candies.forEach(candy => {
         Candies.push(new Candy(
@@ -16,7 +16,7 @@ const parseJsonToObjects = () => {
     data.offers.forEach(offer => {
         const candies = [];
         offer.candies.forEach(x => {
-            var temp = Candies.find(c => { return c.id == x });
+            let temp = Candies.find(c => { return c.id == x });
             candies.push(new Candy(
                 temp.id,
                 temp.name,

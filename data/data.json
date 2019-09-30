@@ -50,6 +50,18 @@
             "name": "Snappy",
             "surprise": "Two meters of Brix!",
             "maximumHits": 10
+        },
+        {
+            "id": 3,
+            "name": "Paprikko",
+            "surprise": "https://i.ytimg.com/vi/oDuuQ49ajKM/maxresdefault.jpg",
+            "maximumHits": 2
+        },
+        {
+            "id": 4,
+            "name": "Lion O",
+            "surprise": "https://vignette.wikia.nocookie.net/thundercatslair/images/5/5a/Lion-O.jpg",
+            "maximumHits": 1
         }
     ]
 }
