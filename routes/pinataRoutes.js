@@ -15,7 +15,7 @@ pinata.post('/api/pinatas', (req, res) => {
   const pinata = req.body;
     service.createPinata(pinata,
         (pinata) => { return res.status(201).json(pinata); },
-        (err) => { return res.status(404).json(err); }
+        (err) => { return res.status(500).json(err); }
     );
 });
 

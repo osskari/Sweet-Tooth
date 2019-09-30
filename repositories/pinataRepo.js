@@ -19,7 +19,7 @@ const pinataRepo = () => {
     };
 
     const create = (pinata, cb, errorCb) => {
-        if(!Pinatas){ errorCb("Databse Error"); }
+        if(!Pinatas){ errorCb("Database Error"); }
         const newPinata = new Pinata(
             Pinatas.length + 1,
             pinata.name,
