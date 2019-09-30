@@ -29,7 +29,7 @@ pinata.get('/api/pinatas/:id', (req, res) => {
 });
 
 // localhost:5000/api/pinatas/{id}/hit [GET]
-pinata.get('/api/pinatas/:id/hit', (req, res) => {
+pinata.patch('/api/pinatas/:id/hit', (req, res) => {
     const id = req.params.id;
     service.hitPinataById(id,
         (msg, code) => { return res.status(code).json(msg); },
